@@ -3,15 +3,15 @@ package echo;
 import java.net.Socket;
 import java.util.HashMap;
 
-public class CacheProxy extends ProxyHandler {
+public class CacheHandler extends ProxyHandler {
 
     private static final SafeTable cache = new SafeTable();
 
-    public CacheProxy(Socket s) {
+    public CacheHandler(Socket s) {
         super(s);
     }
 
-    public CacheProxy() {
+    public CacheHandler() {
         super();
     }
 
