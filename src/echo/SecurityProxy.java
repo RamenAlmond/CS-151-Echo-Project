@@ -4,7 +4,7 @@ import java.net.Socket;
 
 public class SecurityProxy extends ProxyHandler {
 
-    private static final SafeTable<String, String> userTable = new SafeTable<>();
+    private static final SafeTable userTable = new SafeTable();
 
     private boolean authenticated = false; 
     private String currentUser = null;

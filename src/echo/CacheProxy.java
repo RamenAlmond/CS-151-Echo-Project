@@ -1,10 +1,11 @@
 package echo;
 
 import java.net.Socket;
+import java.util.HashMap;
 
 public class CacheProxy extends ProxyHandler {
 
-    private static final SafeTable<String, String> cache = new SafeTable<>();
+    private static final SafeTable cache = new SafeTable();
 
     public CacheProxy(Socket s) {
         super(s);
@@ -39,14 +40,15 @@ public class CacheProxy extends ProxyHandler {
     }
 }
 
-class SafeTable<K, V> {
-    private final java.util.Map<K, V> table = new java.util.HashMap<>();
+class SafeTable extends HashMap<String, String> {
 
-    public synchronized V get(K key) {
-        return table.get(key);
+    @Override
+    public synchronized String get(Object key) {
+        return super.get(key);
     }
 
-    public synchronized void put(K key, V value) {
-        table.put(key, value);
+    @Override
+    public synchronized String put(String key, String value) {
+        return super.put(key, value);
     }
 }
