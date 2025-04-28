@@ -19,6 +19,7 @@ public class HitCountHandler extends ProxyHandler {
         counter.incHits();
     }
 
+   @Override
     protected String response(String request) throws Exception {
         if (request.equalsIgnoreCase("hits")) {
             return "" + counter.getHits();

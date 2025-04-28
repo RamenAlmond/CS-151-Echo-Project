@@ -2,18 +2,18 @@ package echo;
 
 import java.net.Socket;
 
-public class SecurityProxy extends ProxyHandler {
+public class SecurityHandler extends ProxyHandler {
 
     private static final SafeTable<String, String> userTable = new SafeTable<>();
 
     private boolean authenticated = false; 
     private String currentUser = null;
 
-    public SecurityProxy(Socket s) {
+    public SecurityHandler(Socket s) {
         super(s);
     }
 
-    public SecurityProxy() {
+    public SecurityHandler() {
         super();
     }
 
